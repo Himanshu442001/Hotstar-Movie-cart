@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
+import Card from "./Card";
+import "./index.css";
+import Stats from './Stats';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+// console.log(Stats[0].title);
+const  ncard = (val) => <Card  
+        key ={val.id}
+        Mname ={val.Mname}
+        img_src={val.img_src}
+        title={val.title}
+        links={val.links}/>;
+
+
+ReactDOM.render(
+<>
+<div className="Header"> 
+<h1 className="Heading"> Top Five Movies of Hotstar</h1>
+
+</div>
+{Stats.map(ncard)}
+        
+
+
+
+
+</>,
+ 
+document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
